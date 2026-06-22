@@ -2,6 +2,7 @@ import logging
 import sys
 import subprocess
 import os
+import mlflow
 
 from core.config import RAGConfig
 from dotenv import load_dotenv
@@ -27,6 +28,7 @@ logging.basicConfig(
 )
 
 load_dotenv()
+mlflow.set_tracking_uri("sqlite:///mlflow.db")  # <- adicionar aqui
 config = RAGConfig
 
 # Inicializa modelos globalmente para evitar re-inicialização a cada chamada
